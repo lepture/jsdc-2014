@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <meta name="author" content="Hsiaoming Yang">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="assets/reveal.css">
+  <link rel="stylesheet" href="assets/serif.css" id="theme">
+  <link rel="stylesheet" href="assets/zenburn.css">
+  <link rel="stylesheet" href="assets/slide.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">{{ content }}</div>
+  </div>
+  <script src="assets/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      theme: Reveal.getQueryHash().theme,
+      transition: Reveal.getQueryHash().transition || 'default',
+    });
+  </script>
+</body>
+</html>

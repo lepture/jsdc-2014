@@ -1,0 +1,4 @@
+name: "Talk on Accessibility"
+timezone: Asia/Taipei
+markdown: kramdown
+permalink: /:title.html

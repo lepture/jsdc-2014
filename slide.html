@@ -1,0 +1,262 @@
+---
+layout: slide
+title: Accessibility
+description: A talk on accessibility for JSDC TW 2014.
+---
+
+<section>
+  <h1>Better HTML</h1>
+  <h2>A talk on Accessibility</h2>
+  <p>By <a href="http://lepture.com">Hsiaoming Yang</a></p>
+</section>
+
+<section>
+  <h2>I’m Hsiaoming Yang</h2>
+  <h4>a.k.a lepture</h4>
+  <ul>
+    <li>楊曉明</li>
+    <li>lepture.com</li>
+    <li>github.com/lepture</li>
+    <li>twitter.com/lepture</li>
+  </ul>
+</section>
+
+<section class="white-font" data-background="#3ABEE8">
+  <section>
+    <h1>Accessibility Matters</h1>
+  </section>
+  <section>
+    <h2>It is the right thing to do.</h2>
+    <h2>Just follow the standards.</h2>
+  </section>
+</section>
+
+<section class="white-font" data-background="#2AC581">
+  <section>
+    <h1>Accessibility in real life</h1>
+  </section>
+  <section>
+    <h2>Toliet Design</h2>
+  </section>
+  <section>
+    <h2>Traffic light</h2>
+    <img src="assets/traffic-light.jpg" alt="Traffic light">
+  </section>
+</section>
+
+<section>
+  <figure>
+    <figcaption>Color Blindness</figcaption>
+    <img src="assets/ishihara.png" alt="Color blindness test">
+  </figure>
+</section>
+
+<section>
+  <h1>~8%</h1>
+  <aside class="notes">Nearly 8% men can't tell the difference between green and red.</aside>
+</section>
+
+<section>
+  <h2>The Web is fundamentally designed to work for all people.</h2>
+</section>
+
+<section>
+  <figure>
+    <figcaption>Trello Color Blind Friendly Labels</figcaption>
+    <img src="assets/trello.png" alt="Trello Color Blind Friendly Labels">
+  </figure>
+</section>
+
+<section>
+  <h1><a href="https://github.com/lepture/yue.css">yue.css</a></h1>
+</section>
+
+<section class="white-font" data-background="#DA4118">
+  <section class="font-sans">
+    <h2>YOU ARE DOING IT WRONG</h2>
+  </section>
+  <section>
+    <h2>The people's newspaper</h2>
+  </section>
+  <section>
+    <h2>TODO</h2>
+  </section>
+</section>
+
+<section data-background="assets/tyrion.png">
+  <aside class="notes">
+    A mind needs books as a sword needs a whetstone.
+  </aside>
+</section>
+
+<section>
+  <section>
+    <h2>Voice Over</h2>
+    <h4>VO: Control+Option</h4>
+  </section>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <td>Shortcut</td>
+          <td>Description</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VO+shift+down</td>
+          <td>Enter an area</td>
+        </tr>
+        <tr>
+          <td>VO+shift+up</td>
+          <td>Leave an area</td>
+        </tr>
+        <tr>
+          <td>VO+left</td>
+          <td>Next element</td>
+        </tr>
+        <tr>
+          <td>VO+right</td>
+          <td>Previous element</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <td>Shortcut</td>
+          <td>Description</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VO+U</td>
+          <td>Find links</td>
+        </tr>
+        <tr>
+          <td>VO+Command+N</td>
+          <td>Find next heading</td>
+        </tr>
+        <tr>
+          <td>VO+H</td>
+          <td>Show Voice Over Help</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+<section>
+  <h2>ChromeVox</h2>
+  <h2>Accessibility Developer Tools</h2>
+</section>
+
+<section class="text-center">
+  <h2>Aria Label</h2>
+  {% highlight html %}
+  <i class="icon-cogs" aria-label="Settings"></i>
+  {% endhighlight %}
+  <a class="button" href="demo/aria-label.html">View Demo</a>
+  <aside class="notes">Example from moedict.tw</aside>
+</section>
+
+<section>
+  <section>
+    <h1>Landmarks</h1>
+  </section>
+  <section>
+    <img src="assets/landmarks.png" alt="Landmarks">
+  </section>
+  <section>
+    <a class="button" href="demo/role-landmarks.html">View Demo</a>
+  </section>
+</section>
+
+<section class="text-center">
+  <h2>Live Region</h2>
+  {% highlight html %}
+  <div aria-live="off/polite/assertive">text to be spoken</div>
+  {% endhighlight %}
+  <a class="button" href="demo/aria-live-assertive.html">View Demo</a>
+</section>
+
+<section>
+  <section>
+    <h1>Tablist</h1>
+    <h2>A Widget example</h2>
+  </section>
+  <section>
+    <h2>role=tablist</h2>
+    {% highlight html %}
+<ul role="tablist">
+  <li id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1">Panel 1</li>
+  <li id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2">Panel 2</li>
+</ul>
+<div id="panel-1" role="tab-panel" aria-hidden="false" aria-labelledby="tab-1">
+  This is the first tab.
+</div>
+<div id="panel-2" role="tab-panel" aria-hidden="true" aria-labelledby="tab-2">
+  This is the second tab.
+</div>
+    {% endhighlight %}
+  </section>
+  <section class="text-center">
+    <h2>aria-hidden</h2>
+    {% highlight css %}
+    [aria-hidden=true] { display: none; }
+    {% endhighlight %}
+    <h2>aria-selected</h2>
+    {% highlight css %}
+    [aria-selected=true] { background: #64d; }
+    {% endhighlight %}
+  </section>
+  <section>
+    <a class="button font-sans" href="demo/tablist.html">View Demo</a>
+  </section>
+</section>
+
+<section>
+  <h2>aria-required vs required</h2>
+</section>
+
+<section>
+  <section>
+    <h2>Captcha vs reCaptcha</h2>
+  </section>
+  <section>
+    <h2>Captcha</h2>
+    <img src="assets/captcha.png" alt="Captcha">
+  </section>
+  <section>
+    <h2>reCaptcha</h2>
+    <img src="assets/recaptcha.png" alt="reCaptcha">
+  </section>
+</section>
+
+<section>
+  <h1>Proud to be a web developer</h1>
+</section>
+
+<section>
+  <h2>Useful links</h2>
+  <ul>
+    <li><a href="http://a11yproject.com/">The Accessibility Project</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">Accessibility | MDN</a></li>
+    <li><a href="http://www.w3.org/TR/wai-aria/roles">The Roles Model</a></li>
+    <li><a href="http://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines</a></li>
+  </ul>
+</section>
+
+<section>
+  <h1>THANKS FOR YOUR TIME</h1>
+  <h3>Hsiaoming Yang / lepture</h3>
+</section>
+
+<section>
+  <h1>ONE MORE THING</h1>
+  <aside class="notes">This slide is accessible</aside>
+</section>

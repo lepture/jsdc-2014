@@ -1,0 +1,59 @@
+---
+layout: demo
+title: Tablist
+---
+
+<style>
+  ul {
+    list-style: none;
+  }
+  ul li {
+    display: inline-block;
+    background: #999;
+    color: #333;
+    padding: 8px 20px;
+    border: 1px solid #999;
+  }
+  [role=tab] {
+    cursor: pointer;
+  }
+  ul li[aria-selected=true] {
+    background: #64d;
+    color: white;
+  }
+  div[aria-hidden=true] {
+    display: none;
+  }
+  div[role=tab-panel] {
+    padding: 30px;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<ul role="tablist">
+  <li id="tab-1" role="tab" aria-selected="true" aria-controls="panel-1">Panel 1</li>
+  <li id="tab-2" role="tab" aria-selected="false" aria-controls="panel-2">Panel 2</li>
+</ul>
+<div id="panel-1" role="tab-panel" aria-hidden="false" aria-labelledby="tab-1">
+  This is the first tab.
+</div>
+<div id="panel-2" role="tab-panel" aria-hidden="true" aria-labelledby="tab-2">
+  This is the second tab.
+</div>
+
+<script>
+  var tabs = document.querySelectorAll('[role=tab]');
+  var pannels = document.querySelectorAll('[role=tab-panel]');
+  tabs[0].addEventListener('click', function() {
+    tabs[0].setAttribute('aria-selected', 'true');
+    tabs[1].setAttribute('aria-selected', 'false');
+    pannels[0].setAttribute('aria-hidden', 'false');
+    pannels[1].setAttribute('aria-hidden', 'true');
+  });
+  tabs[1].addEventListener('click', function() {
+    tabs[1].setAttribute('aria-selected', 'true');
+    tabs[0].setAttribute('aria-selected', 'false');
+    pannels[1].setAttribute('aria-hidden', 'false');
+    pannels[0].setAttribute('aria-hidden', 'true');
+  });
+</script>

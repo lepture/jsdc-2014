@@ -1,3 +1,3 @@
 # JSDC 2014
 
-Cases for JSDC 2014
+Slide for JSDC 2014 (WIP)

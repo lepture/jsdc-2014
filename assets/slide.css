@@ -1,0 +1,36 @@
+.reveal .highlight {
+  margin-bottom: 50px;
+}
+.reveal section .button {
+  border: 3px solid #999;
+  font-size: 24px;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+.reveal .uppercase {
+  text-transform: uppercase;
+}
+.reveal .white-font h1,
+.reveal .white-font h2,
+.reveal .white-font h3,
+.reveal .white-font h4,
+.reveal .white-font p {
+  color: white;
+}
+.reveal .font-sans h1,
+.reveal .font-sans h2,
+.reveal .font-sans h3 {
+  font-family: "Impact", "PT Sans", sans-serif;
+}
+.reveal .text-center .highlight pre {
+  text-align: center;
+}
+
+.green {
+  background-color: #34b27d;
+}
+.color-blind-green {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(to bottom left, rgba(255, 255, 255, .5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, transparent 75%, transparent);
+  background-size: 16px 16px;
+}

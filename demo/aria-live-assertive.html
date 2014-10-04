@@ -1,0 +1,49 @@
+---
+layout: demo
+title: live regions
+---
+
+<style>
+  .visual-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  #msg {
+    background: #9BBBFF;
+    color: #1147A8;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 3px;
+  }
+</style>
+
+<div id="msg">Open Voice Over and wait.</div>
+
+<script>
+  var count = 0;
+  function speak(text) {
+    var msg = document.getElementById('msg');
+    count += 1;
+    msg.innerHTML = 'You have ' + count + ' messages';
+    var el = document.getElementById('speaker');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'speaker';
+      el.className = 'visual-hidden';
+      document.body.appendChild(el);
+    }
+    el.setAttribute('aria-live', 'assertive');
+    var p = document.createElement('p');
+    p.innerHTML = text;
+    el.appendChild(p);
+  }
+  setInterval(function() {
+    speak('you have a new message');
+  }, 5000);
+</script>
